@@ -1,0 +1,13 @@
+MODULE_NAME := wr
+RESMAN_CORE_OBJS:=entry.o
+RESMAN_GLUE_OBJS:=process.o memory.o
+	$(MODULE_NAME)-objs:=$(RESMAN_CORE_OBJS) $(RESMAN_GLUE_OBJS)
+	obj-m := wr.o
+KER=/home/wr/Desktop/5.1/out
+
+all:
+	make -C $(KER) M=$(PWD) ARCH=arm64 SUBARCH=arm64 modules
+
+clean:
+	@rm -rf *.ko
+	@rm -rf *.mod* *.sym* .*.cmd *.order *.o
