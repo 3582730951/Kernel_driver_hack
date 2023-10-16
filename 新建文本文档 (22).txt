@@ -11,3 +11,8 @@ all:
 clean:
 	@rm -rf *.ko
 	@rm -rf *.mod* *.sym* .*.cmd *.order *.o
+
+
+export PATH=/home/king/2/clang_r383902-main/bin:/home/king/2/2/bin:$PATH
+
+make CROSS_COMPILE=aarch64-linux-android- ARCH=arm64 -C /home/king/1/cezanne-r-oss/out M=$PWD -j8
